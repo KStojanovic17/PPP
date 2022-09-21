@@ -1,0 +1,258 @@
+inherited TasksFrame: TTasksFrame
+  Size.Width = 346.000000000000000000
+  Size.Height = 596.000000000000000000
+  inherited MainLayout: TGridPanelLayout
+    Size.Width = 346.000000000000000000
+    Size.Height = 596.000000000000000000
+    ControlCollection = <
+      item
+        Column = 0
+        Control = HeaderRect
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = TabControl1
+        Row = 1
+      end>
+    inherited HeaderRect: TRectangle
+      Size.Width = 346.000000000000000000
+      Size.Height = 38.962421417236330000
+      inherited CaptionLbl: TLabel
+        Size.Width = 346.000000000000000000
+        Size.Height = 35.962421417236330000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'Tasks'
+        inherited HamburgerImg: TPath
+          Size.Height = 18.962421417236330000
+          inherited HitBox: TLayout
+            Size.Height = 24.962421417236330000
+          end
+        end
+      end
+    end
+    object TabControl1: TTabControl
+      Align = Client
+      Size.Width = 346.000000000000000000
+      Size.Height = 557.037597656250000000
+      Size.PlatformDefault = False
+      TabIndex = 0
+      TabOrder = 0
+      TabPosition = PlatformDefault
+      Sizes = (
+        346s
+        531.03759765625s
+        346s
+        531.03759765625s)
+      object TabTasks: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = True
+        Size.Width = 48.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Tasks'
+        ExplicitSize.cx = 48.000000000000000000
+        ExplicitSize.cy = 26.000000000000000000
+        object ListView1: TListView
+          ItemAppearanceClassName = 'TListItemRightDetailAppearance'
+          ItemEditAppearanceClassName = 'TListItemRightDetailDeleteAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          ItemIndex = 0
+          Align = Client
+          Size.Width = 346.000000000000000000
+          Size.Height = 488.037597656250000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnItemClick = ListView1ItemClick
+        end
+        object Button1: TButton
+          Align = Bottom
+          Position.Y = 488.037597656250000000
+          Size.Width = 346.000000000000000000
+          Size.Height = 43.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Add Task'
+          OnClick = Button1Click
+        end
+      end
+      object TabAddTask: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 68.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Add Task'
+        ExplicitSize.cx = 68.000000000000000000
+        ExplicitSize.cy = 26.000000000000000000
+        object Button2: TButton
+          Position.X = 24.000000000000000000
+          Position.Y = 454.000000000000000000
+          TabOrder = 0
+          Text = 'Save'
+          OnClick = Button2Click
+        end
+        object DateEditend_date: TDateEdit
+          Date = 44790.000000000000000000
+          Position.X = 24.000000000000000000
+          Position.Y = 216.000000000000000000
+          TabOrder = 1
+          object Labelend_date: TLabel
+            Position.Y = -16.000000000000000000
+            TextSettings.WordWrap = False
+            Text = 'end_date'
+            TabOrder = 14
+          end
+        end
+        object DateEditstart_date: TDateEdit
+          Date = 44789.000000000000000000
+          Position.X = 24.000000000000000000
+          Position.Y = 162.000000000000000000
+          TabOrder = 2
+          object Labelstart_date: TLabel
+            Position.Y = -16.000000000000000000
+            TextSettings.WordWrap = False
+            Text = 'start_date'
+            TabOrder = 0
+          end
+        end
+        object Edittitle: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 3
+          Text = 'Zadatak 1'
+          Position.X = 24.000000000000000000
+          Position.Y = 48.000000000000000000
+          object Labeltitle: TLabel
+            Position.Y = -16.000000000000000000
+            TextSettings.WordWrap = False
+            Text = 'title'
+            TabOrder = 0
+          end
+        end
+        object Memoadditional: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          Lines.Strings = (
+            'Opis....')
+          Position.X = 24.000000000000000000
+          Position.Y = 294.000000000000000000
+          Size.Width = 281.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          Viewport.Width = 281.000000000000000000
+          Viewport.Height = 50.000000000000000000
+        end
+        object Button3: TButton
+          Position.X = 225.000000000000000000
+          Position.Y = 454.000000000000000000
+          TabOrder = 5
+          Text = 'Cancel'
+          OnClick = Button3Click
+        end
+        object Edittype: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 6
+          Text = 'active'
+          Position.X = 24.000000000000000000
+          Position.Y = 105.000000000000000000
+          object Labeltype: TLabel
+            Position.Y = -16.000000000000000000
+            TextSettings.WordWrap = False
+            Text = 'status'
+            TabOrder = 0
+          end
+        end
+      end
+    end
+  end
+  object MyConnection1: TMyConnection
+    Database = 'mobile_app'
+    Username = 'root'
+    Server = 'localhost'
+    Connected = True
+    LoginPrompt = False
+    Left = 288
+    Top = 429
+  end
+  object MyTable1: TMyTable
+    TableName = 'tasks'
+    Connection = MyConnection1
+    Active = True
+    Left = 112
+    Top = 496
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = MyTable1
+    ScopeMappings = <>
+    Left = 192
+    Top = 424
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 180
+    Top = 477
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'title'
+      Control = ListView1
+      FillExpressions = <
+        item
+          SourceMemberName = 'completed'
+          ControlMemberName = 'ImageIndex'
+        end
+        item
+          SourceMemberName = 'type'
+          ControlMemberName = 'Detail'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkControlToFieldtitle: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'title'
+      Control = Edittitle
+      Track = False
+    end
+    object LinkControlToFieldstart_date: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'start_date'
+      Control = DateEditstart_date
+      Track = False
+    end
+    object LinkControlToFieldend_date2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'end_date'
+      Control = DateEditend_date
+      Track = False
+    end
+    object LinkControlToFieldadditional: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'additional'
+      Control = Memoadditional
+      Track = False
+    end
+    object LinkControlToFieldtype: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'type'
+      Control = Edittype
+      Track = False
+    end
+  end
+end

@@ -1,0 +1,138 @@
+inherited CallsFrame: TCallsFrame
+  Margins.Top = -2.000000000000000000
+  Size.Width = 413.000000000000000000
+  Size.Height = 1380.000000000000000000
+  inherited MainLayout: TGridPanelLayout
+    Size.Width = 413.000000000000000000
+    Size.Height = 1380.000000000000000000
+    ControlCollection = <
+      item
+        Column = 0
+        Control = HeaderRect
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = VertScrollBox
+        Row = 1
+      end>
+    inherited HeaderRect: TRectangle
+      Size.Width = 413.000000000000000000
+      Size.Height = 90.215003967285160000
+      inherited CaptionLbl: TLabel
+        Size.Width = 413.000000000000000000
+        Size.Height = 87.215003967285160000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'Contacts list'
+        inherited HamburgerImg: TPath
+          Size.Height = 70.215003967285160000
+          inherited HitBox: TLayout
+            Size.Height = 76.215003967285160000
+          end
+        end
+      end
+    end
+    object VertScrollBox: TVertScrollBox
+      Align = Client
+      Margins.Top = 1.000000000000000000
+      Size.Width = 413.000000000000000000
+      Size.Height = 1288.785034179688000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Viewport.Width = 413.000000000000000000
+      Viewport.Height = 1288.800000000000000000
+      object ContactsList: TListBox
+        Align = Client
+        Size.Width = 334.000000000000000000
+        Size.Height = 592.158447265625000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Visible = False
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 334.000000000000000000
+        Viewport.Height = 592.200000000000000000
+      end
+      object lblLoading: TLabel
+        Align = Center
+        StyledSettings = [Family, Style, FontColor]
+        Opacity = 0.400000005960464500
+        Size.Width = 303.000000000000000000
+        Size.Height = 72.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.FontColor = xFF070707
+        TextSettings.HorzAlign = Center
+        Text = 'Loading contacts...'
+        TabOrder = 1
+        object ProgressBar: TProgressBar
+          Align = Bottom
+          HitTest = False
+          Orientation = Horizontal
+          Margins.Bottom = 10.000000000000000000
+          Position.Y = 47.000000000000000000
+          Size.Width = 303.000000000000000000
+          Size.Height = 15.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object ListView1: TListView
+        ItemAppearanceClassName = 'TListItemAppearance'
+        ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        ItemIndex = 0
+        Align = Client
+        Size.Width = 413.000000000000000000
+        Size.Height = 1288.785034179688000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object Button1: TButton
+          Position.X = 109.000000000000000000
+          Position.Y = 328.000000000000000000
+          TabOrder = 0
+          Text = 'Button1'
+          OnClick = Button1Click
+        end
+      end
+    end
+  end
+  object MyConnection1: TMyConnection
+    Database = 'mobile_app'
+    Username = 'root'
+    Server = 'localhost'
+    Connected = True
+    Left = 136
+    Top = 341
+  end
+  object MyTable1: TMyTable
+    TableName = 'contact'
+    Connection = MyConnection1
+    Active = True
+    Left = 216
+    Top = 341
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = MyTable1
+    ScopeMappings = <>
+    Left = 296
+    Top = 344
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 44
+    Top = 341
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'contact_id'
+      Control = ListView1
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+end

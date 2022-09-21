@@ -1,0 +1,70 @@
+inherited InboxFrame: TInboxFrame
+  inherited MainLayout: TGridPanelLayout
+    ControlCollection = <
+      item
+        Column = 0
+        Control = HeaderRect
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = ListView1
+        Row = 1
+      end>
+    inherited HeaderRect: TRectangle
+      inherited CaptionLbl: TLabel
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'Inbox'
+      end
+    end
+    object ListView1: TListView
+      ItemAppearanceClassName = 'TListItemAppearance'
+      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      ItemIndex = 1
+      Align = Client
+      Size.Width = 328.000000000000000000
+      Size.Height = 548.625915527343800000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+  end
+  object MyConnection1: TMyConnection
+    Database = 'mobile_app'
+    Username = 'root'
+    Server = 'localhost'
+    Connected = True
+    Left = 216
+    Top = 304
+  end
+  object MyTable1: TMyTable
+    TableName = 'message'
+    Connection = MyConnection1
+    Active = True
+    Left = 216
+    Top = 192
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = MyTable1
+    ScopeMappings = <>
+    Left = 152
+    Top = 280
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 349
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'messagetype'
+      Control = ListView1
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'message_name'
+      FillBreakGroups = <>
+    end
+  end
+end

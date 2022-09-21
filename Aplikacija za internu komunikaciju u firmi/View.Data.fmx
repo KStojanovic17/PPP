@@ -1,0 +1,70 @@
+inherited DataFrame: TDataFrame
+  Size.Width = 347.000000000000000000
+  Size.Height = 566.000000000000000000
+  inherited MainLayout: TGridPanelLayout
+    Size.Width = 347.000000000000000000
+    Size.Height = 566.000000000000000000
+    ControlCollection = <
+      item
+        Column = 0
+        Control = HeaderRect
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = VertScrollBox
+        Row = 1
+      end>
+    inherited HeaderRect: TRectangle
+      Size.Width = 347.000000000000000000
+      Size.Height = 37.001224517822270000
+      inherited CaptionLbl: TLabel
+        Size.Width = 347.000000000000000000
+        Size.Height = 34.001224517822270000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'Data'
+        inherited HamburgerImg: TPath
+          Size.Height = 17.001224517822270000
+          inherited HitBox: TLayout
+            Size.Height = 23.001224517822270000
+          end
+        end
+      end
+    end
+    object VertScrollBox: TVertScrollBox
+      Align = Client
+      Size.Width = 347.000000000000000000
+      Size.Height = 528.998779296875000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 347.000000000000000000
+      Viewport.Height = 529.000000000000000000
+      object Grid: TGrid
+        Align = Bottom
+        CanFocus = True
+        ClipChildren = True
+        Position.Y = 404.998779296875000000
+        Size.Width = 347.000000000000000000
+        Size.Height = 124.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        RowCount = 0
+        OnDrawColumnCell = GridDrawColumnCell
+        Viewport.Width = 343.000000000000000000
+        Viewport.Height = 99.000000000000000000
+      end
+      object ListView: TListView
+        ItemAppearanceClassName = 'TListItemAppearance'
+        ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Client
+        Size.Width = 347.000000000000000000
+        Size.Height = 404.998779296875000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        OnItemClick = ListViewItemClick
+      end
+    end
+  end
+end
